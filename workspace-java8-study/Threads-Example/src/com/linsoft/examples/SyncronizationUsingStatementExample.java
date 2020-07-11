@@ -1,56 +1,57 @@
 package com.linsoft.examples;
 
-class SyncronizationUsingMethodExampleThread implements Runnable
+class SyncronizationUsingStatementExampleThread implements Runnable
 {
+	Thread t;
 	int count = 0;
-	String ThreadName = "";
-	SyncronizationUsingMethodExampleThread(String ThreadName, int count) 
-	{
+	SyncronizationUsingStatementExampleThread(String ThreadName, int count) {
+		// Create a new, second thread
+		t = new Thread(this, ThreadName);
 		this.count = count;
-		this.ThreadName = ThreadName ;
-	}
+		//System.out.println("Child thread: " + t);
+		t.start(); // Start the thread
+		}
+	
 	
 	public void run()
 	{
-		System.out.println("Before calling printMessage of "+ThreadName);
+		System.out.println("Before calling printMessage of "+t.getName());
 		printMessage();
-		System.out.println("After calling printMessage of "+ThreadName);
+		System.out.println("After calling printMessage of "+t.getName());
+		
+		
 	}
 	
-	synchronized public void printMessage()
+	public void printMessage()
 	// public void printMessage()
 	{
-		System.out.println("starting of printMessage -  "+ThreadName);
-		try
+		Object obj = null;
+		synchronized(SyncronizationUsingStatementExampleThread.class)
 		{
-			Thread.sleep(100);
+			System.out.println("starting of printMessage -  "+t.getName());
+			try
+			{
+				t.sleep(100);
+			}
+			catch(Exception e)
+			{
+				e.printStackTrace();
+			}
+			System.out.println("end of printMessage  - "+t.getName());
 		}
-		catch(Exception e)
-		{
-			e.printStackTrace();
-		}
-		System.out.println("end of printMessage  - "+ThreadName);
+	
 	}
 	
 }
 
-public class SyncronizationUsingMethodExample {
+public class SyncronizationUsingStatementExample {
 
 	public static void main(String[] args) {
+
 		
-		SyncronizationUsingMethodExampleThread obj1 =  new SyncronizationUsingMethodExampleThread("One",2);
-		SyncronizationUsingMethodExampleThread obj2 =  new SyncronizationUsingMethodExampleThread("Two",5);
-		SyncronizationUsingMethodExampleThread obj3 =  new SyncronizationUsingMethodExampleThread("Three",10);
-		
-		Thread Tobj1 = new Thread(obj1,"One");
-		Tobj1.start();
-		
-		Thread Tobj2 = new Thread(obj2,"One");
-		Tobj2.start();
-		
-		Thread Tobj3 = new Thread(obj3,"One");
-		Tobj3.start();
-		
+		SyncronizationUsingStatementExampleThread obj1 =  new SyncronizationUsingStatementExampleThread("One",2);
+		SyncronizationUsingStatementExampleThread obj2 =  new SyncronizationUsingStatementExampleThread("Two",5);
+		SyncronizationUsingStatementExampleThread obj3 =  new SyncronizationUsingStatementExampleThread("Three",10);
 		
 /*		System.out.println("Thread One is alive: "
 				+ obj1.t.isAlive());
@@ -63,11 +64,11 @@ public class SyncronizationUsingMethodExample {
 				try 
 				{
 					System.out.println("Waiting for threads to finish.");
-					Tobj1.join(); // This method waits until the thread on which it is called terminates , ie, wait until Obj1.thread is stopped. 
+					obj1.t.join(); // This method waits until the thread on which it is called terminates , ie, wait until Obj1.thread is stopped. 
 					//System.out.println("This line will print once obj1.Thread is complete the execution - Obj1 join");
-					Tobj2.join();
+					obj2.t.join();
 					//System.out.println("This line will print once obj2.Thread is complete the execution -  Obj2 join");
-					Tobj3.join();
+					obj3.t.join();
 					//System.out.println("This line will print once obj1.Thread is complete the execution-   Obj3 join");
 				} catch (InterruptedException e)
 				{
