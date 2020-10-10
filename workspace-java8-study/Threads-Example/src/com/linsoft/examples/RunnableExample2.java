@@ -2,10 +2,11 @@ package com.linsoft.examples;
 
 class RunnableClass2 implements Runnable
 {
-	Thread t;
+	
 	
 	RunnableClass2() {
 		// Create a new, second thread
+		Thread t;
 		t = new Thread(this, "Demo Thread");
 		System.out.println("Child thread: " + t);
 		t.start(); // Start the thread

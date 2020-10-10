@@ -47,7 +47,7 @@ public class RunnableMultipleThreads {
 			System.out.println( "Main Thread at after Create Threads");
 			try
 			{
-				Thread.sleep(1000);	
+				Thread.sleep(10);	
 			}
 			catch(InterruptedException e)
 			{

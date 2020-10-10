@@ -10,12 +10,33 @@ public class PassLambdaAsArgument {
 	
 	public int calculateSumUptoN(test t , int n)
 	{
+		
+		
+		
+		
+		t.sumuptoN(n);
+		
+		
 		return t.sumuptoN(n);
 	}
 	
 	public static void main(String[] args) {
 
 		
+		PassLambdaAsArgument sample = new PassLambdaAsArgument();
+		
+		//int sum = 0;
+		int summ = sample.calculateSumUptoN((n) -> 
+		{
+			int sum  = 0;
+			for(int i = 1 ; i<=n ; i++)
+			{
+				sum = sum+i;
+			}
+			return sum;
+		}, 10);
+		System.out.println(summ);
+		/*
 		PassLambdaAsArgument sample = new PassLambdaAsArgument();
 	
 		int total = sample.calculateSumUptoN(
@@ -43,7 +64,7 @@ public class PassLambdaAsArgument {
 			return sum;
 		};
 		
-		System.out.println(sample.calculateSumUptoN(sam, 12));
+		System.out.println(sample.calculateSumUptoN(sam, 12));*/
 		
 		
 	}

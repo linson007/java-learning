@@ -4,7 +4,7 @@ package com.linsoft;
 enum DayNew
 {
 
-	SUN(0),MON(1),TUE(2),WED(3),THU(4),FRI(5),SAT(6);
+	SUN(10),MON(1),TUE(2),WED(13),THU(4),FRI(5),SAT(6);
 	private int number;
 	
 	DayNew(int n) //constructor

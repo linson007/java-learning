@@ -10,8 +10,9 @@ class Queue
 	{
 		while(!valueSet)
 			try {
+				System.out.println("before wait");
 			wait();
-			//System.out.println("haii");
+			System.out.println("after");
 			} catch(InterruptedException e) {
 			System.out.println("InterruptedException caught");
 			}
@@ -25,16 +26,18 @@ class Queue
 	synchronized void put(int n)
 	{
 		while(valueSet)
-			try {
+		{	try {
 			wait();
 			} catch(InterruptedException e) {
 			System.out.println("InterruptedException caught");
 			}
+		}
 		this.n = n;
 		valueSet = true;
 		System.out.println("Q - put "+n);
+		System.out.println("before notify");
 		notify();
-		
+		System.out.println("after notify");
 	}
 	
 	
@@ -75,14 +78,17 @@ class ProducerNew implements Runnable {
 }
 
 
-public class InterProcessCommunicationSolution {
+public class InterProcessCommunicationSolution  {
 
-	public static void main(String[] args) {
+	public static void main(String[] args) throws InterruptedException {
 		
 		Queue q = new Queue();
-		new ProducerNew(q);
+		
 		new ConsumerNew(q);
-		System.out.println("Press Control-C to stop.");
+		
+		Thread.sleep(1000);
+		new ProducerNew(q);
+		//System.out.println("Press Control-C to stop.");
 
 	}
 

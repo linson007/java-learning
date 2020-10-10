@@ -23,7 +23,7 @@ class SyncronizationUsingMethodExampleThread implements Runnable
 		System.out.println("starting of printMessage -  "+ThreadName);
 		try
 		{
-			Thread.sleep(100);
+			//Thread.sleep(1000);
 		}
 		catch(Exception e)
 		{
@@ -43,12 +43,11 @@ public class SyncronizationUsingMethodExample {
 		SyncronizationUsingMethodExampleThread obj3 =  new SyncronizationUsingMethodExampleThread("Three",10);
 		
 		Thread Tobj1 = new Thread(obj1,"One");
-		Tobj1.start();
-		
 		Thread Tobj2 = new Thread(obj2,"One");
-		Tobj2.start();
-		
 		Thread Tobj3 = new Thread(obj3,"One");
+		
+		Tobj1.start();
+		Tobj2.start();
 		Tobj3.start();
 		
 		

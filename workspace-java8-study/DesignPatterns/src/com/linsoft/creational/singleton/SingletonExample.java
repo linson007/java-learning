@@ -3,7 +3,7 @@ package com.linsoft.creational.singleton;
 class SingleTon
 {
 	
-	static SingleTon obj = new SingleTon();
+	private static SingleTon obj = new SingleTon();
 	
 	private SingleTon () {}
 	

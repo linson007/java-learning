@@ -34,14 +34,17 @@ public class SimpleLambaExample {
 
 		
 		
-		functionalWithoutArgument lambdaExmaple =  ()-> {
+/*		functionalWithoutArgument lambdaExmaple =  ()   -> {
 			 System.out.println("helloWorld");
-		 };
+		 };*/
+		 
+		 
+			functionalWithoutArgument lambdaExmaple =  ()   -> System.out.println("helloWorld");
 		 
 		 lambdaExmaple.printHelloWorld();
 		 
 		 
-		 withSingleArguemnt SayHaiSample = (n) -> {
+		/* withSingleArguemnt SayHaiSample = (n) -> {
 			 System.out.println("Hai "+n);
 		 };
 		 SayHaiSample.SayHai("Linson");
@@ -84,7 +87,7 @@ public class SimpleLambaExample {
 		 };
 		 
 		 
-		System.out.println(reverseOf.reverse("linson"));
+		System.out.println(reverseOf.reverse("linson"));*/
 		 
 	}
 

@@ -10,7 +10,7 @@ public class EnumDemo {
 	public static void main(String[] args) {
 		
 		
-	Day d  = Day.SUN;
+	Day d  = Day.MON;
 	
 	System.out.println("ordinal value"+d.ordinal());
 		
@@ -51,7 +51,7 @@ public class EnumDemo {
 	Day alldays[] = Day.values();
 	for(Day day : alldays)
 	{
-		System.out.println(day);
+		System.out.println("days:"+day);
 	}
 	
 	System.out.println("valueof ()");

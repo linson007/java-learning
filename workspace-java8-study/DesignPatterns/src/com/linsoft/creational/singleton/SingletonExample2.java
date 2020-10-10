@@ -3,11 +3,11 @@ package com.linsoft.creational.singleton;
 
 class SingleTonNew
 {
-	SingleTonNew obj = null;
+	static SingleTonNew obj = null;
 	
 	private SingleTonNew () {}
 	
-	public SingleTonNew getInstance()
+	public static SingleTonNew getInstance()
 	{
 		if(obj==null)
 		{
@@ -31,7 +31,7 @@ public class SingletonExample2 {
 
 	public static void main(String[] args) {
 	  
-		SingleTonNew objjj =SingleTonNew.get
+		SingleTonNew objjj =SingleTonNew.getInstance();
 	}
 
 }

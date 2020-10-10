@@ -1,0 +1,4 @@
+
+Read this article regarding singleton
+
+https://dzone.com/articles/java-singletons-using-enum
