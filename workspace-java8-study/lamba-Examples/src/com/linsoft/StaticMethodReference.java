@@ -56,7 +56,7 @@ public class StaticMethodReference {
 		
 		test2 sam2 = StaticMethodReference::staticfind;
 		
-		//System.out.println(calculateSumUptoN(sam, 10));
+		System.out.println(calculateSumUptoN(sam, 10));
 		
 		System.out.println(calculateSumUptoN(sam2, 10));
 		System.out.println(calculateSumUptoN(StaticMethodReference::staticfind, 10));

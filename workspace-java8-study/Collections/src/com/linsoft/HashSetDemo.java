@@ -7,6 +7,7 @@ class HashSetDemo {
 		HashSet<String> hs = new HashSet<String>();
 		//Add elements to the hash set.
 		hs.add("Beta");
+		hs.add("Beta");
 		hs.add("Alpha");
 		hs.add("Eta");
 		hs.add("Gamma");
